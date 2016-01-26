@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script >
+
+var app=angular.module("myApp",[])
+app.controller("myController",function($scope){
+$scope.amount= function(){
+	return $scope.quantity*$scope.cost;
+}
+	});
+
+
+</script>
+</head>
+<body>
+<div  ng-app="myApp" ng-controller="myController" >
+	 q:<input type="text" ng-model="quantity"><br>
+	c:<input type="text" ng-model="cost"><br>
+	t:={{amount()}}
+</div>
+</body>
+</html>
