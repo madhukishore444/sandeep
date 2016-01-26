@@ -28,15 +28,7 @@
 <body>
 <input type="submit" value="save"/>
 
-<table>
-<tr><%=request.getAttribute("key1") %> </tr>
-<tr><%=request.getAttribute("key2") %> </tr>
-<tr><%=request.getAttribute("key3") %> </tr>
-<tr><%=request.getAttribute("key4") %> </tr>
-<tr><%=request.getAttribute("key5") %> </tr>
-<tr><%=request.getAttribute("key6") %> </tr>
-<tr><%=request.getAttribute("key7") %> </tr>
-</table>
+
 
 </body>
 
