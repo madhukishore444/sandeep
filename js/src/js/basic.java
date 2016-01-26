@@ -17,8 +17,8 @@ public class basic {
 	public static void main(String[] args) {
 	// TODO Auto-generated method stub
 	
-Object ob=new Object();
-//basic b=new basic();
+//Object ob=new Object();
+basic b=new basic();
 System.out.println("in main");
 
 	}
