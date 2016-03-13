@@ -1,0 +1,50 @@
+http://download.jboss.org/jbosstools/mars/stable/updates/http://download.jboss.org/jbosstools/mars/stable/updates/<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html ng-app="myApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="angular.min.js"></script>
+<script >
+/* var model={
+	items:[{"action":"flowers","done":false},
+	{"action":"shoes","done":false},
+	{"action":"tickets","done":true}]
+	
+		
+}; */
+var app=angular.module("myApp",[])
+app.controller("myctrl",function($scope,$http){
+/* $scope.todo=model;
+ */
+	 $http.get("todo.json").sucess(function(data){
+	 $scope.items=data;
+
+		 });	
+});
+
+
+</script>
+<title>Insert title here</title>
+</head>
+<body ng-controller="myctrl">
+
+<div class="page-header">
+<h2 align="center">List of things to do</h2>
+</div>
+<div class="panel">
+<table class="table table-striped">
+<thead>
+<tr><th>Desc</th><th>Done</th></tr>
+</thead>
+<tbody>
+<tr ng-repeat="item in items">
+<td>{{item.action}}</td>
+<td>{{item.done}}</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</body>
+</html>

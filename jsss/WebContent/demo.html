@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<script src="jquery/jquery-1.11.3.min.js"></script>
+<!-- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ -->
+ <script >
+/*$(document).ready(function(){
+ $("input").focus(function(){
+	$(this).css("background-color","#cccccc")
+	});
+
+$("input").blur(function(){
+	$(this).css("background-color","#ffffff")
+	});
+	
+});
+ */
+ $(document).ready(function(){
+ $("input").on({
+
+	 focus:function(){
+		$(this).css("background-color","#cccccc")
+		},
+blur:function(){
+		$(this).css("background-color","#ffffff")
+		}
+ }
+		);
+ });
+
+ $("#loginForm").submit(function(e){
+	var formData=$(this).serializeArray();
+
+	var formURL="loginProcess";
+
+	$.ajax({
+	url : formURL,
+	type: "POST",
+	data:formData,
+
+	sucess:function(data,textStatus,jqXHR){
+	$("#loginForm").fadeOut();
+	$("#message").html("<h3>u r sucssfuly logined in</h3>");
+		},
+		error:function(jqXHR,textStatus,errorThrown){
+
+
+			}
+
+		});
+	e.preventDefault();
+	e.unbind();
+	$("#loginForm").submit();
+	
+	 });
+ </script>
+ 
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+<body>
+<h2 align="center">jquery demo</h2>
+<div id="message"></div>
+
+<!-- 
+<button id="button1">click here11</button>
+
+<button id="button2">click here22</button>
+
+<p>madhu</p>
+<p class="hm">hyd</p>
+
+<p>kishore</p>
+<p class="hm">uppal</p>
+ -->
+ <form id="loginForm" method="post">
+ 
+ username:<input type="text" name="username"><br>
+ password:<input type="password" name="password">
+ <input type="submit" value="submit">
+ </form>
+ </body>
+</html>
